@@ -46,7 +46,7 @@ class FirecrawlSearchTool(BaseTool):
                 return f"No search results found for query: {query}"
                 
             urls = []
-            for item in search_result.web[:3]: # Only take top 3 to keep context window manageable
+            for item in search_result.web[:5]: # Only take top 5 to keep context window manageable
                 if isinstance(item, dict) and 'url' in item:
                     urls.append(item['url'])
                 elif hasattr(item, 'url'):

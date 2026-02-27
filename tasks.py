@@ -11,9 +11,9 @@ def create_search_task(agent, product_name: str, target_domains: list) -> Task:
         Focus your search on these target domains: {domains_str}.
         Use your scraping/search tool to perform web queries (e.g. '{product_name} site:amazon.in').
         
-        Compile a list of up to 3 valid, direct product URLs where this item is currently sold.
+        Compile a list of up to 5 valid, direct product URLs where this item is currently sold.
         Do NOT return search result pages, only direct product pages.""",
-        expected_output="A list of 1 to 3 direct competitor product URLs.",
+        expected_output="A list of 1 to 5 direct competitor product URLs.",
         agent=agent
     )
 
