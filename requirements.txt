@@ -1,0 +1,6 @@
+streamlit
+crewai
+firecrawl-py
+python-dotenv
+langchain-openai
+pydantic
