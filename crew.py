@@ -3,7 +3,7 @@ from crewai import Crew, Process
 from agents import create_researcher_agent, create_scout_agent, create_strategist_agent
 from tasks import create_search_task, create_scraping_task, create_analysis_task
 
-def run_competitor_analysis(product_name: str, target_domains: list, internal_price: float, currency: str) -> str:
+def run_competitor_analysis(product_name: str, target_domains: list, internal_price: float, currency: str, internal_promotions: str = "") -> str:
     """
     Orchestrates the CrewAI process to generate the Competitive Strategy Report.
     """
@@ -15,7 +15,7 @@ def run_competitor_analysis(product_name: str, target_domains: list, internal_pr
     # Create tasks
     search_task = create_search_task(researcher, product_name, target_domains)
     scrape_task = create_scraping_task(scout)
-    analysis_task = create_analysis_task(strategist, internal_price, currency)
+    analysis_task = create_analysis_task(strategist, internal_price, currency, internal_promotions)
     
     # Ensure they pass context sequentially
     scrape_task.context = [search_task]

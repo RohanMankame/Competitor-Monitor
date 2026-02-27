@@ -29,6 +29,8 @@ def main():
         with col2:
             currency = st.selectbox("Currency:", options=["USD", "GBP", "YEN", "INR", "RMB"], index=3) # Default to INR given .in domains
         
+        internal_promotions = st.text_area("Internal Promotions / Discounts (Optional):", placeholder="e.g., 10% off with code SAVE10, Buy 1 Get 1 Free", help="Include any current offers you are running on this product to factor into the competitive analysis.")
+        
         submitted = st.form_submit_button("Run Strategic Analysis 📊")
         
     if submitted:
@@ -40,7 +42,7 @@ def main():
             st.info("Deploying the Researcher, Scout, and Strategist...")
             with st.spinner("Analyzing competitive market data... This process takes up to two minutes."):
                 try:
-                    analysis_result = run_competitor_analysis(product_name, target_domains, internal_price, currency)
+                    analysis_result = run_competitor_analysis(product_name, target_domains, internal_price, currency, internal_promotions)
                     
                     st.success("Analysis Complete!")
                     st.markdown("### 🗺️ Competitive Strategy Report")

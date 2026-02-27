@@ -31,23 +31,25 @@ def create_scraping_task(agent) -> Task:
         2. The current selling price of the product.
         3. Any original/strike-through prices or active discounts.
         4. Any promotional banners or text (e.g., "Buy 1 Get 1", "20% off with code").
+        5. Recent sales volume or popularity metrics (e.g., "1K+ bought in past month", "Best Seller").
         
         Ensure you look at the raw markdown text provided by the scraper and infer the price accurately 
         based on visual context. Present your findings clearly for EVERY URL you process.""",
-        expected_output="A structured summary containing the product title, current price, discounts, and ongoing promotions extracted from EACH of the provided pages.",
+        expected_output="A structured summary containing the product title, current price, discounts, ongoing promotions, and sales volume extracted from EACH of the provided pages.",
         agent=agent
     )
 
-def create_analysis_task(agent, internal_price: float, currency: str) -> Task:
+def create_analysis_task(agent, internal_price: float, currency: str, internal_promotions: str = "") -> Task:
     """
     Task for the Strategist to analyze the data and generate a strategic plan.
     """
+    promotions_context = f"\n        Our current internal promotions/discounts: {internal_promotions}" if internal_promotions else ""
     return Task(
         description=f"""You have the Scout's report containing pricing and promotional data from multiple competitor product pages.
         
-        Our Internal Base Price for this product (or a functionally identical equivalent) is: {internal_price} {currency}.
+        Our Internal Base Price for this product (or a functionally identical equivalent) is: {internal_price} {currency}.{promotions_context}
         
-        Compare the competitors' aggregated extracted prices and promotions against our Internal Price and the exact currency specified ({currency}).
+        Compare the competitors' aggregated extracted prices, promotions, and sales volume against our Internal Price, internal promotions, and the exact currency specified ({currency}).
         Draft a high-impact "Competitive Strategy Report". Provide actionable recommendations.
         Identify the lowest, highest, and average competitor price from the Scout's data.
         Specifically, state clearly which of the following tactical moves we should make:
