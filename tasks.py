@@ -70,6 +70,7 @@ def create_analysis_task(
         - "INCREASE AD SPEND": If we are cheaper but they are running heavier promotions or have way better ratings.
         - "HOLD": If our price is competitive, we have strong ratings, and they have no strong promotions.
         - "OVERHAUL VALUE PROP": If they are massively cheaper AND have better ratings AND stronger promotions.
+        -If there are better options, feel free to suggest them with clear justification.
         
         Provide the strategic reasoning behind your tactical move based on the full metric comparison.""",
         expected_output="A detailed 'Competitive Strategy Report' formatted in Markdown. It must include the extracted competitor data, a rigorous comparison of EVERY internal metric (price, promotion, sales, ratings) against market reality, the chosen tactical move, and strategic reasoning.",
