@@ -25,7 +25,7 @@ def main():
         with col1:
             internal_price = st.number_input("Internal Base Price:", min_value=0.0, value=0.0, step=0.01)
         with col2:
-            currency = st.selectbox("Currency:", options=["USD", "GBP", "YEN", "INR", "RMB"], index=3) # Default to INR given .in domains
+            currency = st.selectbox("Currency:", options=["USD", "GBP", "YEN", "INR", "RMB"], index=3) 
             
         col3, col4, col5 = st.columns(3)
         with col3:
@@ -35,7 +35,7 @@ def main():
         with col5:
             internal_rating = st.slider("Internal Star Rating:", min_value=1.0, max_value=5.0, value=4.5, step=0.1)
         
-        submitted = st.form_submit_button("Run Strategic Analysis 📊")
+        submitted = st.form_submit_button("Run Strategic Analysis ")
         
     if submitted:
         if not product_name:

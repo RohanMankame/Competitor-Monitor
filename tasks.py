@@ -27,7 +27,7 @@ def create_scraping_task(agent) -> Task:
         Use your scraping tool to visit EACH competitor product URL provided.
         
         For EACH URL, your objective is to EXTRACT THE FOLLOWING 5 KEY METRICS:
-        1. The main product name/title.
+        1. The main product name/title/URL.
         2. The current selling price of the product (scan carefully to differentiate between regular and discounted price).
         3. Any original/strike-through prices or active discounts.
         4. Any promotional banners or text (e.g., "Buy 1 Get 1", "20% off with code", "Prime Delivery").

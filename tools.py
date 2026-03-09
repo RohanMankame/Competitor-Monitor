@@ -26,6 +26,10 @@ class FirecrawlScrapeTool(BaseTool):
                 return f"Error: Firecrawl did not return markdown."
         except Exception as e:
             return f"Error scraping the URL with Firecrawl: {str(e)}"
+        
+
+
+        
 
 class FirecrawlSearchTool(BaseTool):
     name: str = "FirecrawlSearchTool"
