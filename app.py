@@ -35,7 +35,9 @@ def main():
         with col5:
             internal_rating = st.slider("Internal Star Rating:", min_value=1.0, max_value=5.0, value=4.5, step=0.1)
         
-        submitted = st.form_submit_button("Run Strategic Analysis ")
+        internal_promotions = st.text_area("Internal Promotions / Discounts (Optional):", placeholder="e.g., 10% off with code SAVE10, Buy 1 Get 1 Free", help="Include any current offers you are running on this product to factor into the competitive analysis.")
+        
+        submitted = st.form_submit_button("Run Strategic Analysis 📊")
         
     if submitted:
         if not product_name:
@@ -46,10 +48,7 @@ def main():
             st.info("Deploying the Researcher, Scout, and Strategist...")
             with st.spinner("Analyzing competitive market data... This process takes up to two minutes."):
                 try:
-                    analysis_result = run_competitor_analysis(
-                        product_name, target_domains, internal_price, currency,
-                        internal_promotion, internal_sales, internal_rating
-                    )
+                    analysis_result = run_competitor_analysis(product_name, target_domains, internal_price, currency, internal_promotions)
                     
                     st.success("Analysis Complete!")
                     st.markdown("### Competitive Strategy Report")
