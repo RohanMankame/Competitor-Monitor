@@ -27,12 +27,10 @@ def main():
         with col2:
             currency = st.selectbox("Currency:", options=["USD", "GBP", "YEN", "INR", "RMB"], index=3) 
             
-        col3, col4, col5 = st.columns(3)
-        with col3:
-            internal_promotion = st.text_input("Internal Promotion/Discount:", placeholder="e.g., 20% off")
-        with col4:
+        col1, col2, col3 = st.columns(3)
+        with col1:
             internal_sales = st.text_input("Internal Sales:", placeholder="e.g., 1000 units/mo")
-        with col5:
+        with col2:
             internal_rating = st.slider("Internal Star Rating:", min_value=1.0, max_value=5.0, value=4.5, step=0.1)
         
         internal_promotions = st.text_area("Internal Promotions / Discounts (Optional):", placeholder="e.g., 10% off with code SAVE10, Buy 1 Get 1 Free", help="Include any current offers you are running on this product to factor into the competitive analysis.")
