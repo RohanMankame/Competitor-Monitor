@@ -58,7 +58,9 @@ def create_analysis_task(agent, internal_price: float, currency: str, internal_p
         - "HOLD": If our price is competitive and they have no strong promotions.
         - "OVERHAUL VALUE PROP": If they are cheaper AND running heavy promotions.
         
-        Provide the reasoning behind your tactical move.""",
-        expected_output="A detailed 'Competitive Strategy Report' formatted in Markdown, including the extracted competitor data, comparison to internal price, the chosen tactical move, and strategic reasoning.",
+        Provide the reasoning behind your tactical move.
+        
+        DO NOT include any footer, signature, or metadata like "Prepared by", "Date", or author information in your report.""",
+        expected_output="A detailed 'Competitive Strategy Report' formatted in Markdown, including the extracted competitor data, comparison to internal price, the chosen tactical move, and strategic reasoning. No footer or signature.",
         agent=agent
     )
